@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   #get 'users/show'
   resources :users, only: [:show]
-  resources :microposts, only: [:new, :create, :destroy]
+  resources :microposts, only: [:new, :create, :destroy, :show]
 
 
 

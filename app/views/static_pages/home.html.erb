@@ -1,4 +1,18 @@
 <% provide(:title, "Home") %>
+<% if user_signed_in? %>
+<!--ログイン後の画面-->
+<div class ="container">
+  <div class="jumbotron">
+   <h1 class="display-4">ようこそ!</h1>
+   <p class="lead">あなたのお気に入りの料理をみんなで共有しよう。そうすれば世界が広がるはずです。</p>
+   <hr class="my-4">
+   <p>さっそく新規登録、ログインをしてサービスを利用しよう。かんたんログイン機能を使えば登録せずにすぐにサービスを活用できます。</p>
+   <%= link_to "ユーザーページ", '/users/1' ,class: 'btn btn-primary btn-lg',role: 'button'%>
+
+ </div>
+</div>
+
+<% else %>
 <div class ="container">
   <div class="jumbotron">
    <h1 class="display-4">ようこそ!</h1>
@@ -10,3 +24,4 @@
    <%= link_to "かんたんログイン", '#' ,class: 'btn btn-primary btn-lg',role: 'button'%>
  </div>
 </div>
+<% end %>

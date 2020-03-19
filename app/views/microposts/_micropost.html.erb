@@ -6,7 +6,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <%= link_to micropost.user.name, micropost.user ,class: 'btn btn-sm btn-outline-secondary',role: 'button'%>
-                  <%= link_to "View", micropost_path,class: 'btn btn-sm btn-outline-secondary',role: 'button'%>
+                  <%= link_to "View", micropost.picture.url,class: 'btn btn-sm btn-outline-secondary',role: 'button'%>
                   <%= link_to "消去", micropost,method: :delete,data: { confirm: "投稿を消去してよろしいですか？" } ,class: 'btn btn-sm btn-outline-secondary',role: 'button'%>
                 </div>
                 <small class="text-muted">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</small>

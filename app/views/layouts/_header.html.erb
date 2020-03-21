@@ -15,9 +15,42 @@
     color: white;
     text-decoration: none;
   }
+
+
 }
     </style>
-<%= link_to "foods app", root_path , id: "logo" %>
+
+    <div class="col-md-10">
+      <%= link_to "foods app", root_path , id: "logo" %>
+    </div>
+
+    <% if user_signed_in? %>
+    <!--ログイン後の画面-->
+    <div class="dropdown col-md-2">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        メニュー
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <%= link_to "マイページ", user_path(current_user), class: 'dropdown-item' %>
+        <%= link_to "投稿", new_micropost_path, class: 'dropdown-item' %>
+        <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'dropdown-item' %>
+        <%= link_to "お問い合わせ", "#", class: 'dropdown-item' %>
+      </div>
+    </div>
+<% else %>
+<div class="dropdown col-md-2">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    メニュー
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <%= link_to "新規登録", new_user_registration_path, class: 'dropdown-item' %>
+    <%= link_to "ログイン", new_user_session_path, class: 'dropdown-item' %>
+    <%= link_to "お問い合わせ", "#", class: 'dropdown-item' %>
+  </div>
+</div>
+<%end%>
 
 
 </div>

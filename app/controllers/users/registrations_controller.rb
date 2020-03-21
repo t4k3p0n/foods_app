@@ -10,9 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  #def create
-     #super
-  #end
+  # def create
+  # super
+  # end
 
   # GET /resource/edit
   # def edit
@@ -51,7 +51,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # アカウント編集後、プロフィール画面に移動する
-  def after_sign_up_path_for(resource)
+  def after_sign_up_path_for(_resource)
     user_path(id: current_user.id)
   end
 

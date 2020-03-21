@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  #process resize_to_fill: [700, 700, 'Center']
+  # process resize_to_fill: [700, 700, 'Center']
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -20,7 +22,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # アップロード可能な拡張子のリスト
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

@@ -1,0 +1,26 @@
+<%= provide(:title, "ユーザー") %>
+<div class="text-center">
+  <h1 class="font-weight-bold mt-5">ユーザー</h1>
+<div class="container mt-5">
+  <div class="row">
+  <div class="col-md-12">
+  <div class="card-group">
+
+  <% @users.each do |user| %>
+  <div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+      <%=image_tag user.image.url, size: '300x225',class:"rounded-circle bd-placeholder-img card-img-top" if user.image? %>
+
+      <%= link_to user.name, user %>
+
+  </div>
+  </div>
+  <% end %>
+ </div>
+
+
+<%= will_paginate %>
+</div>
+</div>
+</div>
+</div>

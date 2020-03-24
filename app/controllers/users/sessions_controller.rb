@@ -26,8 +26,7 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # ログイン後、プロフィール画面に移動する
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     user_path(id: current_user.id)
   end
-
 end

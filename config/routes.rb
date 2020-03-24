@@ -9,9 +9,13 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  # get 'users/show'
-  resources :users, only: [:show]
-  resources :microposts, only: %i[new create destroy show]
+
+  #get 'users/show'
+  resources :users, only: [:show, :index]
+  resources :microposts, only: [:new, :create, :destroy, :show]
+
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # deviseコントローラーによる追加

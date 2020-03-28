@@ -4,11 +4,12 @@
 <h1 class="mt-1"><%= @user.name %></h1><br/>
 
 <!-- フォロウィング　ビュー -->
-   <section class="stats">
+   <div class="container mb-5">
         <%= render 'shared/stats' %>
-   </section>
+   
 
    <%= render 'users/follow_form' if user_signed_in? %>
+   </div>
 
 
 <%=link_to "編集",edit_user_registration_path, class: 'btn btn-primary btn-lg',role: 'button' %>

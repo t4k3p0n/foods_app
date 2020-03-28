@@ -1,19 +1,19 @@
 <% @user ||= current_user %>
 <div class="container mb-5">
 
-  <a href="<%= following_user_path(@user) %>">
+  <a>
+  
+  <%=link_to "#{@user.following.count}フォロー", following_user_path(@user),class: "btn btn-secondary" %>
     
-      <%= @user.following.count %>
      
-    フォロー
-  </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <span id="followers">
-     <%= @user.followers.count %>
-    </span>
-      
     
-    フォロワー
+  
+ 
+    <span id="followers">
+    <%=link_to "#{@user.followers.count}フォロワー", followers_user_path(@user),class: "btn btn-secondary"%>
+     </span>
+    
+    
   </a>
    
 </div>

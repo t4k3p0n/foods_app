@@ -21,5 +21,8 @@ module FoodsApp
     config.i18n.default_locale = :ja
     # タイムゾーンも変更するなら，以下を追加
     config.time_zone = 'Asia/Tokyo'
+
+    # 認証トークンをremoteフォームに埋め込む
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end

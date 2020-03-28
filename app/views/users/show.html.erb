@@ -2,6 +2,16 @@
 <div class= "text-center">
 <%=image_tag @user.image.url, size: '300x225',class:"rounded-circle mt-5" if @user.image?%><br/>
 <h1 class="mt-1"><%= @user.name %></h1><br/>
+
+<!-- フォロウィング　ビュー -->
+   <div class="container mb-5">
+        <%= render 'shared/stats' %>
+   
+
+   <%= render 'users/follow_form' if user_signed_in? %>
+   </div>
+
+
 <%=link_to "編集",edit_user_registration_path, class: 'btn btn-primary btn-lg',role: 'button' %>
 <%=link_to "ログアウト",destroy_user_session_path,method: :delete,class: 'btn btn-primary btn-lg',role: 'button' %>
 <%= link_to "新規投稿", new_micropost_path , class: 'btn btn-primary btn-lg',role: 'button'%>

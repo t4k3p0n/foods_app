@@ -1,9 +1,15 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
         <div class="col-12 text-center">
 <%= image_tag @micropost.picture.url, class:'bd-placeholder-img card-img-top' , size: '700x700' if @micropost.picture? %><br/>
+
+<div class= "mt-5">
 <%= @micropost.content %><br/>
-<%= link_to "戻る", :back %>
+</div>
+
+<div class= "mt-5">
+<%= link_to "戻る", :back ,class: "btn btn-secondary btn-lg" ,tabindex: "-1", role: "button" %>
+</div>
 
 </div>
 </div>

@@ -87,6 +87,10 @@ GEM
       devise (>= 4.7.1)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     dry-inflector (0.2.0)
     erubi (1.9.0)
     excon (0.73.0)
@@ -285,6 +289,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.0)
     multi_json (1.14.1)
+    mysql2 (0.5.3)
     netrc (0.11.0)
     nio4r (2.5.2)
     nokogiri (1.10.9)
@@ -442,12 +447,14 @@ DEPENDENCIES
   devise
   devise-bootstrap-views (~> 1.0)
   devise-i18n
+  dotenv-rails
   faker
   fog (= 1.42)
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mini_magick (= 4.7.0)
+  mysql2 (>= 0.4.4)
   pg
   puma (~> 3.7)
   rails (~> 5.1.6)

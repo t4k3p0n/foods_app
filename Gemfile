@@ -56,6 +56,9 @@ gem 'mini_magick',             '4.7.0'
 
 gem 'faker'
 
+#環境変数
+gem 'dotenv-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -78,9 +81,12 @@ group :development do
 end
 
 group :production do
+  #postage sql heroku用
   gem 'pg'
   # 画像投稿
   gem 'fog', '1.42'
+
+   gem 'mysql2', '>= 0.4.4'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

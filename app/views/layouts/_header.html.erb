@@ -22,7 +22,7 @@
 
     <div class="col-md-10">
       <%= link_to "foods app", root_path , id: "logo" %>
-    </div>
+    </div>  
 
     <% if user_signed_in? %>
     <!--ログイン後の画面-->
@@ -39,6 +39,8 @@
         <%= link_to "お問い合わせ", "#", class: 'dropdown-item' %>
       </div>
     </div>
+    
+    
 <% else %>
 <div class="dropdown col-md-2">
   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,7 +50,6 @@
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <%= link_to "新規登録", new_user_registration_path, class: 'dropdown-item' %>
     <%= link_to "ログイン", new_user_session_path, class: 'dropdown-item' %>
-    <%= link_to "かんたんログイン", "", class: 'dropdown-item' %>
     <%= link_to "お問い合わせ", "#", class: 'dropdown-item' %>
   </div>
 </div>

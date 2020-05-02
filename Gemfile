@@ -84,7 +84,9 @@ group :production do
   #postage sql heroku用
   gem 'pg'
   # 画像投稿
+
   gem 'fog-aws'
+
 
    gem 'mysql2', '>= 0.4.4'
 end

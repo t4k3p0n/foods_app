@@ -20,7 +20,14 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+#Heroku
+#production:
+  #<<: *default
+  #database: db/production.sqlite3
+
+#AWS
 production:
+
   <<: *default
   database: db/production.sqlite3
 
@@ -32,3 +39,4 @@ production:
   password: password
   socket: /var/lib/mysql/mysql.sock
   host: db  
+

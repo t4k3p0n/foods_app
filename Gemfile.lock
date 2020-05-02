@@ -84,10 +84,17 @@ GEM
     devise-bootstrap-views (1.1.0)
     devise-i18n (1.9.0)
       devise (>= 4.7.1)
+
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
+
+    dry-inflector (0.2.0)
+
     erubi (1.9.0)
     excon (0.73.0)
     execjs (2.7.0)
@@ -142,6 +149,9 @@ GEM
     minitest (5.14.0)
     multi_json (1.14.1)
     mysql2 (0.5.3)
+
+    netrc (0.11.0)
+
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)

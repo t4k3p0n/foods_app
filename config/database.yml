@@ -27,9 +27,16 @@ test:
 
 #AWS
 production:
+
+  <<: *default
+  database: db/production.sqlite3
+
+  default: &default
   adapter: mysql2
   encoding: utf8
-  reconnect: false
-  database: foods_app_production
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: <%= ENV['DATABASE_PRO_PASSWORD'] %>
+  password: password
+  socket: /var/lib/mysql/mysql.sock
+  host: db  
+

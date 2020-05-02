@@ -14,6 +14,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
+  # 画像ごとに保存するディレクトリを変える
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
@@ -21,6 +22,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # アップロード可能な拡張子のリスト
   def extension_whitelist
     %w(jpg jpeg gif png)
+  end
+
+  # ファイル名を書き換える
+  def filename
+    "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}.#{file.extension}" if original_filename
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

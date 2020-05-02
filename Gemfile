@@ -81,9 +81,17 @@ group :development do
 end
 
 group :production do
+  #postage sql heroku用
   gem 'pg'
   # 画像投稿
-  gem 'fog', '1.42'
+  gem 'fog-aws'
+
+   gem 'mysql2', '>= 0.4.4'
 end
+
+group :production, :staging do
+    gem 'unicorn','5.4.1'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

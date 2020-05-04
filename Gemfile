@@ -46,6 +46,9 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jquery-rails'
 
+#Font Awesome導入
+gem 'font-awesome-sass'
+
 # ページネーション
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'will_paginate',           '3.1.6'

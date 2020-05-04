@@ -11,13 +11,9 @@
    <%= render 'users/follow_form' if user_signed_in? %>
    </div>
 
-
-<%=link_to "編集",edit_user_registration_path, class: 'btn btn-primary btn-lg',role: 'button' %>
-<%=link_to "ログアウト",destroy_user_session_path,method: :delete,class: 'btn btn-primary btn-lg',role: 'button' %>
-<%= link_to "新規投稿", new_micropost_path , class: 'btn btn-primary btn-lg',role: 'button'%>
 <div class="container mt-5">
     <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <h3>自分の投稿 (<%= @user.microposts.count %>)</h3>
       <%= will_paginate @microposts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
       <div class="row">
       <div class="col-md-12">

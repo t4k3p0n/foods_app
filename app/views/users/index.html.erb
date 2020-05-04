@@ -7,11 +7,11 @@
   <div class="card-group">
 
   <% @users.each do |user| %>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <div class="card mb-4 shadow-sm">
-      <%=image_tag user.image.url, size: '300x225',class:"rounded-circle bd-placeholder-img card-img-top" if user.image? %>
+      <%=image_tag user.image.url, size: '300x200',class:"rounded bd-placeholder-img card-img-top" if user.image? %>
 
-      <%= link_to user.name, user %>
+      <%= link_to "@#{user.name}", user,class: 'btn text-dark ml-2 ml-sm-0',role: 'button' %>
 
   </div>
   </div>

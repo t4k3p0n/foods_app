@@ -4,16 +4,15 @@
   <% @microposts.each do |micropost| %>
 <div class="col-md-4">
   <div class="card mb-4 shadow-sm">
-        <%=image_tag micropost.picture.url,class:'bd-placeholder-img card-img-top' , size: '300x225' if micropost.picture? %>
+        <%=link_to image_tag(micropost.picture.url,class:'bd-placeholder-img card-img-top' , size: '300x225'),micropost if micropost.picture? %>
     <div class="card-body">
       <p class="card-content"><%= micropost.content %></p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <%= link_to micropost.user.name, micropost.user ,class: 'btn btn-sm btn-outline-secondary',role: 'button'%>
-          <%= link_to "View", micropost.picture.url,class: 'btn btn-sm btn-outline-secondary',role: 'button'%>
+          <%= link_to micropost.user.name, micropost.user ,class: 'text-dark ml-2 ml-sm-0',role: 'button'%>
 
 
-        <small class="text-muted">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</small>
+        <span class="ml-2 text-muted  d-sm-block d-none"><%= micropost.created_at.strftime("%m/%d %H:%M") %></span>
       </div>
     </div>
   </div>

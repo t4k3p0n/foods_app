@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   root 'static_pages#home'
   get 'static_pages/home'
 
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   end
   resources :microposts,          only: [:new, :create, :destroy, :show]
   resources :relationships,       only: [:create, :destroy]
+
+  resources :likes, only: [:create, :destroy]
 
 
 

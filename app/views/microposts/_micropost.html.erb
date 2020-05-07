@@ -1,3 +1,4 @@
+        
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
               <%=link_to image_tag(micropost.picture.url,class:'bd-placeholder-img card-img-top' , size: '300x225') ,micropost_path(micropost.id) %>
@@ -9,9 +10,15 @@
                   <%= link_to micropost,method: :delete,data: { confirm: "投稿を消去してよろしいですか？" },class: 'btn ml-2 ml-sm-0 ',role: 'button' do %>
                    <i class="fas fa-trash"></i>
                   <% end %>
+                  <!--いいね機能を追加-->
+                  <span class="float-right ml-2 d-sm-block d-none" id="micropost-<%= micropost.id %>">
+                   <%= render "likes/like", micropost: micropost %>
+                  </span>
+                  <!-- ------------------------------------------------  -->
                 </div>
-                <span class="ml-2 text-muted  d-sm-block d-none"><%= micropost.created_at.strftime("%m/%d %H:%M") %></span>
+                <span class="ml-4 text-muted  d-sm-block d-none"><%= micropost.created_at.strftime("%m/%d %H:%M") %></span>
               </div>
             </div>
           </div>
         </div>
+        

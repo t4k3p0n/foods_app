@@ -50,8 +50,7 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 
 # ページネーション
-gem 'bootstrap-will_paginate', '1.0.0'
-gem 'will_paginate',           '3.1.6'
+gem 'kaminari'
 
 # 画像投稿
 gem 'carrierwave',             '1.2.2'

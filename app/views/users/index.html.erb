@@ -1,6 +1,17 @@
 <%= provide(:title, "ユーザー") %>
 <div class="text-center">
-  <h1 class="font-weight-bold mt-5">ユーザー</h1>
+  <h1 class="font-weight-bold mt-5">ユーザー検索</h1>
+  
+  <!--検索機能-->
+  <div class ="mt-5">
+    <%= search_form_for @q do |f| %>
+      <%= f.search_field :name_cont, placeholder: "ユーザー名で検索" %>
+       <%= button_tag type: 'submit',class: 'btn btn-dark mb-1' do %>
+        <i class="fas fa-search"></i>
+       <% end %>
+    <%end%>
+  </div>
+
 <div class="container mt-5">
   <div class="row">
   <div class="col-md-12">

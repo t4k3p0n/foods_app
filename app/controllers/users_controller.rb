@@ -12,13 +12,12 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
-    
+    @users = User.page(params[:page]).per(9)
   end
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = Kaminari.paginate_array(@user.microposts).page(params[:page]).per(9)
   end
 
 
@@ -70,14 +69,14 @@ class UsersController < ApplicationController
   def following
     @title = 'フォロー'
     @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
+    @users = @user.following.page(params[:page])
     render 'show_follow'
  end
 
   def followers
     @title = 'フォロワー'
     @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
+    @users = @user.followers.page(params[:page])
     render 'show_follow'
   end
 

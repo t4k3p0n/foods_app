@@ -2,6 +2,6 @@
 
 class StaticPagesController < ApplicationController
   def home
-    @microposts = Micropost.all
+    @microposts = Kaminari.paginate_array(Micropost.all).page(params[:page]).per(9)
   end
 end

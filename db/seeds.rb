@@ -6,3 +6,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Faker::Config.locale = :en
+
+12.times do |n|
+    name  = Faker::Name.name
+    email = "sample#{n+1}@sample.com"
+    password = "password"
+    User.create!(name:  name,
+                 email: email,
+                 password:              password,
+                 password_confirmation: password,
+                 image: open("#{Rails.root}/db/fixtures/img#{n}.jpg")
+                )
+  end

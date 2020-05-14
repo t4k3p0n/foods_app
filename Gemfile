@@ -56,6 +56,7 @@ gem 'kaminari'
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
 
+#ダミーデータ作成
 gem 'faker'
 
 #環境変数
@@ -75,6 +76,11 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
+
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 3.6.0'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails'
 end
 
 group :development do
@@ -84,9 +90,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
 
-  gem 'rubocop', require: false
-  gem 'rubocop-rails'
 end
 
 group :production do

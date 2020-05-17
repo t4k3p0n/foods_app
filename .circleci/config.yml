@@ -17,32 +17,32 @@ jobs:
         - checkout
 
         - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - v1-dependencies-
+            keys:
+              - v1-dependencies-{{ checksum "Gemfile.lock" }}
+              - v1-dependencies-
 
         # node.jsのアップデート
         - run:
-          name: update node v12.14.0
-          command: |
-            curl -sSL "https://nodejs.org/dist/v12.14.0/node-v12.14.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v12.14.0-linux-x64/bin/node
-            curl https://www.npmjs.com/install.sh | sudo bash
+            name: update node v12.14.0
+            command: |
+              curl -sSL "https://nodejs.org/dist/v12.14.0/node-v12.14.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v12.14.0-linux-x64/bin/node
+              curl https://www.npmjs.com/install.sh | sudo bash
 
         # bundle install
         - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+            name: install dependencies
+            command: |
+              bundle install --jobs=4 --retry=3 --path vendor/bundle
 
         - run:
-          name: install dependencies
-          command: yarn install
+            name: install dependencies
+            command: yarn install
 
         - save_cache:
-          paths:
-            - ./vendor/bundle
-            - ./node_modules
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
+            paths:
+              - ./vendor/bundle
+              - ./node_modules
+            key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
 
         - run: mv config/database.yml.ci config/database.yml
         - run: bundle exec rake db:create
@@ -55,12 +55,12 @@ jobs:
 
         # RSpec
         - run:
-          name: RSpec
-          # 最初のパイプ | は、複数行のシェルコマンドがあることを示します。 
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
+            name: RSpec
+            # 最初のパイプ | は、複数行のシェルコマンドがあることを示します。 
+            command: |
+              mkdir /tmp/test-results
+              TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+                circleci tests split --split-by=timings)"
            
             bundle exec rspec \
               --format progress \
@@ -71,7 +71,7 @@ jobs:
 
         # テストリザルト
         - store_test_results:
-          path: /tmp/test-results
+            path: /tmp/test-results
         - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+            path: /tmp/test-results
+            destination: test-results

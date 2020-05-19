@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   before do
     @user = build(:user)
   end
@@ -13,15 +12,15 @@ RSpec.describe User, type: :model do
   describe 'validations' do
     it 'name,email,password,password_cofirmationがユーザー登録に必要である' do
       user = User.new(
-        name:       "Aaron",
-        email:      "tester@example.com",
-        password:   "password",
+        name: 'Aaron',
+        email: 'tester@example.com',
+        password: 'password',
         password_confirmation: 'password'
       )
       expect(user).to be_valid
     end
 
-    it'nameが存在しないユーザーを許可しない' do
+    it 'nameが存在しないユーザーを許可しない' do
       @user.name = nil
       @user.valid?
       expect(@user.errors).to be_added(:name, :blank)
@@ -63,7 +62,7 @@ RSpec.describe User, type: :model do
       expect(@user).to be_valid
     end
 
-     it 'nameが11文字以上のユーザーを許可しない' do
+    it 'nameが11文字以上のユーザーを許可しない' do
       @user.name = 'a' * 11
       @user.valid?
       expect(@user.errors).to be_added(:name, :too_long, count: 10)
@@ -112,38 +111,36 @@ RSpec.describe User, type: :model do
     end
 
     it 'emailは全て小文字で保存される' do
-    @user.email = 'SAMPLE@SAMPLE.JP'
-    @user.save!
-    expect(@user.reload.email).to eq 'sample@sample.jp'
-  end
+      @user.email = 'SAMPLE@SAMPLE.JP'
+      @user.save!
+      expect(@user.reload.email).to eq 'sample@sample.jp'
+    end
 
-  it'ユーザーが他のユーザーをフォロー、フォロー解除可能である' do
-    test1 = create(:user)
-    test2 = create(:user)
-    test1.follow(test2)
-    expect(test1.following?(test2)).to eq true
-    test1.unfollow(test2)
-    expect(test1.following?(test2)).to eq false
-  end
+    it 'ユーザーが他のユーザーをフォロー、フォロー解除可能である' do
+      test1 = create(:user)
+      test2 = create(:user)
+      test1.follow(test2)
+      expect(test1.following?(test2)).to eq true
+      test1.unfollow(test2)
+      expect(test1.following?(test2)).to eq false
+    end
 
-  it 'フォロー中のユーザーが削除されると、フォローが解消される' do
-    test1 = create(:user)
-    test2 = create(:user)
-    test1.follow(test2)
-    expect(test1.following?(test2)).to eq true
-    test2.destroy
-    expect(test1.following?(test2)).to eq false
-  end
+    it 'フォロー中のユーザーが削除されると、フォローが解消される' do
+      test1 = create(:user)
+      test2 = create(:user)
+      test1.follow(test2)
+      expect(test1.following?(test2)).to eq true
+      test2.destroy
+      expect(test1.following?(test2)).to eq false
+    end
 
-  it 'フォローされているユーザーが削除されると、フォローされていた状態が解消される' do
-    test1 = create(:user)
-    test2 = create(:user)
-    test1.follow(test2)
-    expect(test2.followers.include?(test1)).to eq true
-    test1.destroy
-    expect(test2.followers.include?(test1)).to eq false
+    it 'フォローされているユーザーが削除されると、フォローされていた状態が解消される' do
+      test1 = create(:user)
+      test2 = create(:user)
+      test1.follow(test2)
+      expect(test2.followers.include?(test1)).to eq true
+      test1.destroy
+      expect(test2.followers.include?(test1)).to eq false
+    end
   end
-  end
-  
-  
 end

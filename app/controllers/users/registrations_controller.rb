@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :forbid_test_user, {only: [:edit,:update,:destroy]}
+  before_action :forbid_test_user, { only: %i[edit update destroy] }
 
   # GET /resource/sign_up
   # def new
@@ -16,19 +16,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -61,10 +61,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   private
+
   def forbid_test_user
-      if @user.email == "guestt@example.com"
-        flash[:notice] = "テストユーザーのため変更できません"
-        redirect_to root_path
-      end
+    return unless @user.email == 'guestt@example.com'
+
+    flash[:notice] = 'テストユーザーのため変更できません'
+    redirect_to root_path
   end
 end

@@ -46,7 +46,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jquery-rails'
 
-#Font Awesome導入
+# Font Awesome導入
 gem 'font-awesome-sass'
 
 # ページネーション
@@ -56,17 +56,17 @@ gem 'kaminari'
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
 
-#ダミーデータ作成
+# ダミーデータ作成
 gem 'faker'
 
-#環境変数
+# 環境変数
 gem 'dotenv-rails'
 
 gem 'counter_culture', '~> 1.8'
 
 gem 'jquery-rails'
 
-#検索機能
+# 検索機能
 gem 'ransack'
 
 group :development, :test do
@@ -93,24 +93,22 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
-
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :production do
-  #postage sql heroku用
+  # postage sql heroku用
   gem 'pg'
   # 画像投稿
 
   gem 'fog-aws'
 
-
-   gem 'mysql2', '>= 0.4.4'
+  gem 'mysql2', '>= 0.4.4'
 end
 
 group :production, :staging do
-    gem 'unicorn','5.4.1'
+  gem 'unicorn', '5.4.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

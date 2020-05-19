@@ -3,7 +3,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  #process resize_to_fill: [500, 500, 'Center']
+  # process resize_to_fill: [500, 500, 'Center']
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
@@ -21,7 +21,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # アップロード可能な拡張子のリスト
   def extension_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # ファイル名を書き換える

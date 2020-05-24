@@ -18,6 +18,7 @@
                 </div>
                 <span class="ml-4 text-muted  d-sm-block d-none"><%= micropost.created_at.strftime("%m/%d %H:%M") %></span>
               </div>
+              <%= render 'shared/tag_list', tag_list: micropost.tag_list %>
             </div>
           </div>
         </div>

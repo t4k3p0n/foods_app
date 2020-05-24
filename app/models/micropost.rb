@@ -13,6 +13,9 @@ class Micropost < ApplicationRecord
 
   has_many :likes, dependent: :destroy
   has_many :good_users, through: :likes, source: :user
+  
+  #タグ機能
+  acts_as_taggable
 
   def good(user)
     likes.create(user_id: user.id)

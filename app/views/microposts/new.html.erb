@@ -9,7 +9,8 @@
   </span>
    <div class="field">
      <%= f.text_area :content, placeholder: "コメントを入力してください" ,class:"form-area border mt-2", size: "58x8" %><br />
-   <%= f.submit "投稿する", class: "btn btn-secondary" %>
+     <%= f.text_field :tag_list, value: @micropost.tag_list.join(","), placeholder: "タグを入力してください" ,class:"form-area border mt-2", size: "58x1" %><br />
+   <%= f.submit "投稿する", class: "btn btn-secondary mt-2" %>
    <% end %>
   </div>
 </div>

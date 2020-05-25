@@ -19,3 +19,17 @@ Faker::Config.locale = :en
                  image: open("#{Rails.root}/db/fixtures/img#{n}.jpg")
                 )
   end
+
+#ゲスト
+User.create!(name: "ゲスト",
+             email: "guestt@example.com",
+             password: "password",
+             password_confirmation: "password",
+             image: open("#{Rails.root}/db/fixtures/guest.jpg")
+            )
+
+User.create!(name: "admin",
+             email: "admin@sample.com",
+             password: ENV['ADMIN_PASSWORD'],
+             password_confirmation: ENV['ADMIN_PASSWORD'],
+             admin: true)

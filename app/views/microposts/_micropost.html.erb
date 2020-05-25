@@ -7,8 +7,11 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <%= link_to micropost.user.name, micropost.user ,class: 'btn text-dark ml-2 ml-sm-0',role: 'button'%>
-                  <%= link_to micropost,method: :delete,data: { confirm: "投稿を消去してよろしいですか？" },class: 'btn ml-2 ml-sm-0 ',role: 'button' do %>
-                   <i class="fas fa-trash"></i>
+                  
+                  <% if current_user?(micropost.user) %>
+                    <%= link_to micropost,method: :delete,data: { confirm: "投稿を消去してよろしいですか？" },class: 'btn ml-2 ml-sm-0 ',role: 'button' do %>
+                      <i class="fas fa-trash"></i>
+                    <% end %>
                   <% end %>
                   <!--いいね機能を追加-->
                   <span class="float-right ml-2 d-sm-block d-none" id="micropost-<%= micropost.id %>">

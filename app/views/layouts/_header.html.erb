@@ -52,8 +52,10 @@
         <%= link_to "お問い合わせ", "#", class: 'dropdown-item' %>
       </div>
     </div>
-    
-    
+      <div class= "container">
+        <%= render 'shared/flash_messages' %>
+      </div>
+
 <% else %>
 <div class="col-md-10">
       <%= link_to "foods app", root_path , id: "logo" %>
@@ -70,10 +72,14 @@
     <%= link_to "お問い合わせ", "#", class: 'dropdown-item' %>
   </div>
 </div>
+
+  <div class= "container"> 
+    <%= render 'shared/flash_messages' %>
+  </div>
+
 <%end%>
 
 <p id="top"></p>
-
 
 </div>
 </div>

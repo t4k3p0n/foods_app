@@ -18,7 +18,7 @@ Faker::Config.locale = :en
                  password_confirmation: password,
                  image: open("#{Rails.root}/db/fixtures/img#{n}.jpg")
                 )
-  end
+end
 
 #ゲスト
 User.create!(name: "ゲスト",
@@ -33,3 +33,43 @@ User.create!(name: "admin",
              password: ENV['ADMIN_PASSWORD'],
              password_confirmation: ENV['ADMIN_PASSWORD'],
              admin: true)
+
+users = User.order(:created_at)
+3.times do |n|
+  content = ["めっちゃ美味しかった！！","おすすめです！！","三ツ星　進呈レベル！"]
+  tags = ["フレンチ","イタリアン","アイス"]
+  users[0].microposts.create!(content: content[n],
+                              tag_list: tags[n],
+                              picture: open("#{Rails.root}/db/fixtures/foods#{n}.jpg"))
+end
+3.times do |n|
+  content = ["リピ確定！！","最＆高！！","風味がたまりません！！"]
+  tags = ["イタリアン","BAR","イタリアン"]
+  users[1].microposts.create!(content: content[n],
+                              tag_list: tags[n],
+                              picture: open("#{Rails.root}/db/fixtures/foods#{n+3}.jpg"))
+end
+7.times do |n|
+  content = ["すごく美味しい！毎月食べる！","美味しすぎてびっくりドンキー！","うーん。いいねぇ～。","エクセレント！","メキシカン！！　スパイシーで美味しい！",
+             "はじめての味！！　おいし～い","おしゃんなコーヒー"]
+  tags = ["まったり","ホタテ","お洒落","バーガー","タコス","お洒落","お洒落"]
+  users[2].microposts.create!(content: content[n],
+                              tag_list: tags[n],
+                              picture: open("#{Rails.root}/db/fixtures/foods#{n+6}.jpg"))
+end
+#ゲストの投稿
+3.times do |n|
+  content = ["まいう～！！","ガッツリいっちゃいます！！","朝からまったり。"]
+  tags = ["寿司","牛肉","モーニング"]
+  users[12].microposts.create!(content: content[n],
+                              tag_list: tags[n],
+                              picture: open("#{Rails.root}/db/fixtures/foods#{n+13}.jpg"))
+end
+
+# リレーションシップ
+users = User.all
+user  = users.first
+following = users[2..13]
+followers = users[3..13]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
